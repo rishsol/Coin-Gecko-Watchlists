@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "133698112701",
+    "project_id": "coingeckowatchlists",
+    "storage_bucket": "coingeckowatchlists.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133698112701:android:afb1f91caf2fe52463bbd4",
+        "android_client_info": {
+          "package_name": "com.example.coingecko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133698112701-1smvmopolt6ahgsoolaeq62i740qjg2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJSNMHONxICD-FjgMXfyijE7C7OBk9z48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133698112701-1smvmopolt6ahgsoolaeq62i740qjg2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
