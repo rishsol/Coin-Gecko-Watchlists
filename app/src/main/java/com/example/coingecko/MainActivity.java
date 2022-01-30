@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Model> coinList;
     public String assetprice = "";
 
+    OkHttpClient client = new OkHttpClient();
+
+    String url = "https://api.coingecko.com/api/v3/simple/price?";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -86,11 +90,6 @@ public class MainActivity extends AppCompatActivity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OkHttpClient client = new OkHttpClient();
-
-                String url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd";
-
-                Request request = new Request.Builder().url(url).build();
 
                 client.newCall(request).enqueue(new Callback() {
                     @Override
@@ -101,9 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         if (response.isSuccessful()) {
-
-                            String searchCryptoString = searchCrypto.getText().toString();
-
+                            
                             JSONObject res = null;
                             try {
                                 res = new JSONObject(response.body().string());
