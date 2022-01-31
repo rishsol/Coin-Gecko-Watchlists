@@ -114,7 +114,12 @@ public class MainActivity extends AppCompatActivity {
                                 assetprice = ((JSONObject) res.get(searchCryptoString)).get("usd").toString();
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(MainActivity.this, "Coin Gecko could not find that coin", Toast.LENGTH_SHORT).show();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(MainActivity.this, "Coin Gecko could not find that coin", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                             }
 
                             //String finalAssetprice = assetprice;
