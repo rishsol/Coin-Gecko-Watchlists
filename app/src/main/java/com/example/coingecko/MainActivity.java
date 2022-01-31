@@ -29,6 +29,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
 
     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://coingeckowatchlists-default-rtdb.firebaseio.com/");
@@ -90,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String searchCryptoString = searchCrypto.getText().toString();
+
+                url = url + "ids=" + searchCryptoString + "&vs_currencies=usd";
+
+                Request request = new Request.Builder().url(url).build();
 
                 client.newCall(request).enqueue(new Callback() {
                     @Override
@@ -107,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                                 assetprice = ((JSONObject) res.get(searchCryptoString)).get("usd").toString();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Toast.makeText(MainActivity.this, "Coin Gecko could not find that coin", Toast.LENGTH_SHORT).show();
                             }
 
                             //String finalAssetprice = assetprice;
